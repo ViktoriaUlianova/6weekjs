@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Анкета для усато-полосатых</title>
+<link rel="icon"
+    href="https://www.flaticon.com/svg/vstatic/svg/890/890953.svg?token=exp=1611922017~hmac=04bfad289954eea02735a8dfed955de3"
+    type="image/svg">
+
+</head>
+<style>
+    .container {
+        display: flex;
+        justify-self: center;
+        justify-content: center;
+
+    }
+
+    .form {
+        border-radius: 7px;
+        background-color: rgba(225, 0, 255, 0.088);
+        border: 1px solid yellowgreen;
+        padding: 2% 1% 1% 2%;
+    }
+
+    input {
+        margin: 2%;
+    }
+
+    input:required:valid,
+    select:required:valid {
+        border-color: limegreen;
+    }
+
+    .none {
+        border-color: white;
+    }
+</style>
+
+<body>
+    <div class="container">
+
+        <form class="form">
+            <h1>Анкетирование</h1> <br>
+            <div> <label for="name">* Имя хвостатого </label>
+                <input type="text" id="name" required></div>
+
+            <div> <label for="name2">* Имя безхвостого </label>
+                <input type="text" id="name2" required>
+            </div>
+
+
+            <div> <label for="phone">* Как связаться </label>
+                <input type="tel" id="phone" required> </div>
+
+            <div>
+                <label for="breed">Из какого рода происходит хвостатый </label>
+
+                <select id="breed">
+                    <option value="0"></option>
+                    <option value="1">Ласковое мурчало</option>
+                    <option value="2">Тыгыдымский тыгыдым</option>
+                    <option value="3">Ночная фурия</option>
+                    <option value="4">Ненасытный пузенец</option>
+                    <option value="5">Мистер/миссис неприкасаемость</option>
+                    <option value="6">Царь/царица снов</option>
+                    <option value="7">Громкое мяукало</option>
+                    <option value="8">Охотник на мух или хищный хищник</option>
+
+
+                </select>
+            </div>
+            <div>
+                <b>* Кормешечка</b> <br />
+                <input type="checkbox" name="food" id="simple" value="bits" />
+                <label for="simple"> Хрустики обыкновенные </label> <br />
+
+                <input type="checkbox" name="food" id="wet" value="wet bits" />
+                <label for="wet"> Кусочки мягонько-влажные </label> <br />
+
+                <input type="checkbox" name="food" id="yummie" value="yummie bits" />
+                <label for="yummie"> Хрустики особенно вкусные </label> <br />
+
+                <input type="checkbox" name="food" id="fish" value="fishes" />
+                <label for="fish"> Рыбешечка </label> <br />
+
+                <input type="checkbox" name="food" id="milk" value="Ca" />
+                <label for="milk"> Источник кальция - молоко </label> <br />
+
+            </div>
+            <div>
+                * Половая принадлежность <br />
+
+                <input type="radio" name="sex" checked="checked" id="sex1">
+                <label for="sex1"> Мадам </label> <br />
+
+                <input type="radio" name="sex" id="sex2">
+                <label for="sex2"> Джентельмен </label> <br />
+            </div>
+
+            <div> <label for="comment"> Комментарий котея о содержателе </label> <br />
+                <textarea rows="15" id="comment"></textarea> </div>
+
+            <div>
+
+                <label for="pic"> Демонстрация лика усато-хвостатого </label> <br />
+                <input type="file" id="pic"> </div> <br />
+
+            <button type="submit"> Сохранить </button>
+
+        </form>
+    </div>
+</body>
+
+</html>

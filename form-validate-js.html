@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/styles/form-validate.css">
+    <link rel="stylesheet" href="/assets/styles/normalize.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" novalidate>
+        <div class="form">
+            <h1>Sign up</h1>
+            <!-- name -->
+            <div class="name group">
+                <label for="username">*</label>
+                <input type="text" id="username" placeholder="Full name" value="" required maxlength="18">
+            </div>
+            <!-- phone -->
+            <div class="phone group">
+                <label for="phonenumber">*</label>
+                <input type="tel" id="phonenumber" placeholder="Phone number" value="" required>
+            </div>
+            <!-- gender -->
+            <div class="gender group">
+                <label for="female"> Women</label>
+                <input type="radio" checked name="gender" id="female" value="">
+                <label for="male">Man</label>
+                <input type="radio" name="gender" id="male" value="">
+            </div>
+            <!-- age -->
+            <div class="age group">
+                <label for="age" class="p">* How old are you?</label>
+                <input type="number" id="age" value="" min="18" max="100" required>
+            </div>
+            <!-- country -->
+            <div class="country group">
+                <label for="country" class="p select-country">Select your country</label> <br>
+                <select name="country" id="country">
+
+                    <option value="russia">Russia</option>
+                    <option value="usa">USA</option>
+                    <option value="sweden">Sweden</option>
+                    <option value="thailand">Thailand</option>
+                    <option value="cambodia">Cambodia</option>
+                </select>
+            </div>
+            <!-- email -->
+            <div class="email group">
+                <label for="mail">* E-mail</label>
+                <input type="email" name="mail" id="mail" placeholder="Your email" value="" required
+                    pattern="/^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i">
+            </div>
+            <!-- password -->
+            <div class="password group">
+                <label for="userpass">* Password</label>
+                <input type="password" id="userpass" placeholder="Password" required
+                    pattern="/^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8,}$/">
+            </div>
+            <button onclick=checkAll()>Submit</button>
+        </div>
+        <div id="errorsInfo"></div>
+    </form>
+
+
+    <script src="/assets/js/form-validate.js"></script>
+</body>
+
+</html>
