@@ -21,9 +21,13 @@ function checkValidity(input) {
         errors.push("Превышено допустимое количество символов")
     }
 
+
+
 }
 
-function checkAll() {
+function checkAll(e) {
+
+
     errors = [];
     let inputs = document.querySelectorAll("input");
 
@@ -31,6 +35,11 @@ function checkAll() {
         checkValidity(input);
     }
 
+    e.preventDefault();
+
+    // if (checkValidity == true) {
+    //     input.preventDefault();
+    // }
 
     document.getElementById("errorsInfo").innerHTML = errors.join(".<br>");
 
