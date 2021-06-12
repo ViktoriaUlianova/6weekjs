@@ -17,7 +17,7 @@
             <!-- name -->
             <div class="name group">
                 <label for="username">*</label>
-                <input type="text" id="username" placeholder="Full name" value="" required maxlength="18">
+                <input type="text" id="username" placeholder="Full name" value="" required maxlength="13">
             </div>
             <!-- phone -->
             <div class="phone group">
@@ -60,7 +60,7 @@
                 <input type="password" id="userpass" placeholder="Password" required
                     pattern="/^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8,}$/">
             </div>
-            <button onclick=checkAll()>Submit</button>
+            <button type='button' onclick=checkAll()>Submit</button>
         </div>
         <div id="errorsInfo"></div>
     </form>

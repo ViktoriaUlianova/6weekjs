@@ -3,26 +3,115 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<style>
-    .form {
-        padding: 15px 20px 15px 30px;
-        border: 1px solid palevioletred;
-        background-color: rgba(159, 158, 158, 0.129);
-    }
+    <title>Comments</title>
+    <style>
+        #comments {
+            width: 500px;
+            height: 300px;
+            margin-bottom: 2%;
+            border: 1px solid black;
+            overflow: scroll;
+        }
 
-    input:required:valid {
-        border-color: rgb(255, 0, 251);
-    }
-</style>
+        #avatar {
+            width: 50px;
+            height: 50px;
+        }
+
+        #user {
+            font-weight: 600;
+            color: green;
+        }
+
+        #date {
+            margin-left: 10%;
+            font-style: italic;
+            color: grey;
+        }
+
+        #user,
+        #comment {
+            margin-right: 2%;
+        }
+    </style>
+    <script>
+        let commentText = [];
+        let commentDates = [];
+        let allComments = []; //массив для всех созданных комментариев
+        document.addEventListener("DOMContentLoaded", function (event) {
+            document.getElementById("comments").value = '';
+            let name = localStorage.getItem('name');
+            let comment = localStorage.getItem('comment');
+            if (comment != null)
+                allComments = JSON.parse(comment);
+            if (name != null) {
+                document.getElementById("username").value = name;
+            }
+            document.getElementById("comments").innerHTML = '';
+            if (allComments.length > 0) {
+                for (let c of allComments) {
+                    document.getElementById("comments").innerHTML += c;
+                }
+            }
+        });
+
+        function addComment() {
+            let text = document.getElementById("enter-comment").value;
+            commentText.push(text);
+            commentDates.push(Date.now());
+            checkSpam();
+            document.getElementById("comments").innerHTML = '';
+            if (allComments.length > 0) {
+                for (let c of allComments) {
+                    document.getElementById("comments").innerHTML += c;
+                }
+            }
+        }
+
+        function checkSpam() {
+            let commentString = '';
+            let userName = document.getElementById("username").value;
+            for (i = 0; i < commentText.length; i++) {
+                let checkComment = commentText[i].replace(/viagra/gi, "***").replace(/xxx/gi, "***");
+                commentString =
+                    `<div><img src="avatar.png" alt="avatar" id="avatar">
+<span id="user">${userName}:</span> <span id="comment">${checkComment}</span> <p id="date">${formateDate(commentDates[i])}</p></div><br>`;
+            }
+            allComments.push(commentString); //заполнение массива комментариями
+            if (localStorage.getItem('name') == null) {
+                localStorage.setItem('name', userName);
+            }
+            localStorage.setItem('comment', JSON.stringify(allComments));
+        }
+
+        function formateDate(date) {
+            let now = new Date();
+            let diff = now - date;
+            let second = Math.round(diff / 1000);
+            if (second < 1) {
+                return "прямо сейчас";
+            }
+            if (second < 60) {
+                return `${second} секунд назад`;
+            }
+            let minute = Math.round(diff / 1000 / 60);
+            if (minute < 60) {
+                return `${minute} минут назад`;
+            }
+            return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear() % 100} ${date.getHours()}:${date.getMinutes()}`;
+        }
+    </script>
+</head>
 
 <body>
-    <h1>Local</h1>
-
-    <script src="/assets/js/index.js"></script>
+    <h1>Комментарии</h1>
+    <div id="comments"></div>
+    <p>Имя:</p>
+    <input name="username" id="username">
+    <p>Напишите свой анонимный комментарий:</p>
+    <input name="enter-comment" id="enter-comment">
+    <button type="button" onclick="addComment();">отправить</button>
 </body>
 
 </html>

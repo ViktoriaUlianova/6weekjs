@@ -3,18 +3,18 @@ let errors = [];
 function checkValidity(input) {
     let validity = input.validity;
     if (validity.valueMissing) {
-        errors.push("Поле" + input.placeholder + "незаполнено");
+        errors.push("Поле " + input.placeholder + " незаполнено");
     }
     if (validity.patternMissmatch) {
         errors.push("Неверный формат заполнения");
     }
     if (validity.rangeOverflow) {
         let max = getAttributeValue(input, "max");
-        errors.push("Максимальное значение не может быть больше чем" + max);
+        errors.push("Максимальное значение не может быть больше чем " + max);
     }
     if (validity.rangeUnderflow) {
         let min = getAttributeValue(input, "min");
-        errors.push("Минимальное значение не может быть больше чем" + min);
+        errors.push("Минимальное значение не может быть больше чем " + min);
     }
     if (validity.tooLong) {
         let maxLenght = getAttributeValue(input, "maxlenght");
@@ -25,7 +25,7 @@ function checkValidity(input) {
 
 }
 
-function checkAll(e) {
+function checkAll() {
 
 
     errors = [];
@@ -34,12 +34,6 @@ function checkAll(e) {
     for (let input of inputs) {
         checkValidity(input);
     }
-
-    e.preventDefault();
-
-    // if (checkValidity == true) {
-    //     input.preventDefault();
-    // }
 
     document.getElementById("errorsInfo").innerHTML = errors.join(".<br>");
 

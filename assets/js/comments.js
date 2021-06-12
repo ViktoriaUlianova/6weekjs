@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     let storagePic = localStorage.getItem('picture');
 
     if (storagePic != null) {
-        document.getElementById("picture").value = storagePic;
+        document.getElementById("myimage").src = storagePic;
     }
 });
 
@@ -19,6 +19,7 @@ function showComment() {
     let comment = document.getElementById("two").value;
     comment = checkSpam(comment);
     nickName = checkSpam(nickName);
+
     if (localStorage.getItem('name') == null) {
         localStorage.setItem('name', nickName);
     }

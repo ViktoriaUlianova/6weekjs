@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/assets/styles/normalize.css">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.5), rgba(40, 180, 133, 0.8));
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh;
+    }
+
+    #container {
+        padding-left: 3%;
+    }
+
+    /* .note {
+        background-color: rgba(255, 255, 255, 0.333);
+        margin-top: 1%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        margin-left: 2%;
+    }
+
+    .textarea {
+        padding-top: 1%;
+        padding-bottom: 1%;
+        width: 30%;
+    }
+
+    button {
+        padding: 15px;
+        cursor: pointer;
+        background-color: limegreen;
+    } */
+</style>
+
+<body>
+    <div id="container">
+        <!-- <div class="notes">
+            <div class="note note1">
+                <p>Note 1</p>
+                <input type="textarea" class="textarea textarea-note1">
+                <button onclick="showNote">Save</button>
+            </div>
+            <div class="note note2">
+                <p>Note 2</p>
+                <input type="textarea" class="textarea textarea-note2">
+                <button onclick="showNote">Save</button>
+            </div>
+            <div class="note note3">
+                <p>Note 3</p>
+                <input type="textarea" class="textarea textarea-note3">
+                <button onclick="showNote">Save</button>
+            </div>
+            <div class="note note4">
+                <p>Note 4</p>
+                <input type="textarea" class="textarea textarea-note4">
+                <button onclick="showNote">Save</button>
+            </div>
+        </div> -->
+    </div>
+    <div>
+        <input id="newNote"><button onclick="addNote()">Add note</button>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            generateNotes();
+            let storageTask = localStorage.getItem('task');
+
+            if (storageTask != null) {
+                document.getElementById('newNote').value = storageTask;
+            }
+        })
+
+        let notes = ["Заметка1", "Заметка2", "Заметка3"];
+
+        function finishNotes(sender) {
+            sender.parentElement.classList.toggle("done");
+        }
+
+        function addNote() {
+            let name = document.getElementById("newNote").value;
+            notes.push(name);
+            if (localStorage.getItem('task') == null) {
+                localStorage.setItem('task', name);
+            }
+            generateNotes();
+
+        }
+
+        function generateNotes() {
+            let optionString = "";
+            for (let note of notes) {
+                optionString += `<div><p>Note <br></p> <input type='checkbox'><span>${note}</span></div>`;
+            }
+            document.getElementById("container").innerHTML = optionString;
+        }
+    </script>
+</body>
+
+</html>

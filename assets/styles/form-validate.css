@@ -13,7 +13,11 @@ input:required:valid {
 
 #errorsInfo {
     padding: 5%;
+    color: red;
+    font-size: 22px;
+    background-color: rgba(255, 255, 255, 0.265);
 }
+
 
 .form {
     display: flex;
