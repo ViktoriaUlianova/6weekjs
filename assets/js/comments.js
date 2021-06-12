@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     let storagePic = localStorage.getItem('picture');
 
-    if (localStorage.getItem('picture') != null) {
+    if (storagePic != null) {
         document.getElementById("picture").value = storagePic;
     }
 });
@@ -24,7 +24,7 @@ function showComment() {
     }
 
     if (localStorage.getItem('picture') == null) {
-        localStorage.setItem('picture', filePicture);
+        localStorage.setItem('picture', photo);
     }
 
     document.getElementById("three").value = photo + ":" + nickName + " : " + comment;
@@ -35,12 +35,4 @@ function checkSpam(str) {
     str = str.replace(/xxx/ig, "***");
 
     return str;
-}
-
-function showPhoto() {
-
-
-    let filePicture = document.getElementById("picture").value;
-
-
 }
