@@ -5,13 +5,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/style/spam.css">
-    <link rel="stylesheet" href="/assets/style/normalize.css">
+    <link rel="stylesheet" href="/assets/styles/comments.css">
+    <link rel="stylesheet" href="/assets/styles/normalize.css">
     <title>Document</title>
 </head>
 
 <body>
     <div class="container">
+        <div class="pic">
+            <div class="picture-ofyou">
+                <img alt="" id="myimage" height="100px">
+            </div>
+            <input type="file" name="" id="picture" onchange="showPhoto()">
+        </div>
         <div>
             <h3>Name</h3>
             <textarea class="text one" rows="5" id="one"></textarea>
@@ -27,7 +33,7 @@
             <button onclick="showComment()"> Send message </button>
         </div>
     </div>
-    <script src="/assets/js/spam.js"></script>
+    <script src="/assets/js/comments.js"></script>
 </body>
 
 </html>
