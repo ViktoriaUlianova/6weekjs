@@ -1,3 +1,7 @@
+let commentString = '';
+
+commentString += `<div><img src="avatar.png" alt="avatar" id="avatar">`;
+
 document.addEventListener("DOMContentLoaded", function (event) {
     let storageName = localStorage.getItem('name');
 
@@ -9,12 +13,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
     let storagePic = localStorage.getItem('picture');
 
     if (storagePic != null) {
-        document.getElementById("myimage").src = storagePic;
+        commentString = storagePic;
     }
 });
 
 function showComment() {
-    let photo = document.getElementById("picture").value;
+    // let photo = document.getElementById("picture").value;
     let nickName = document.getElementById("one").value;
     let comment = document.getElementById("two").value;
     comment = checkSpam(comment);
@@ -25,10 +29,12 @@ function showComment() {
     }
 
     if (localStorage.getItem('picture') == null) {
-        localStorage.setItem('picture', photo);
+        localStorage.setItem('picture', commentString);
     }
 
-    document.getElementById("three").value = photo + ":" + nickName + " : " + comment;
+
+
+    document.getElementById("three").value = commentString + ":" + nickName + " : " + comment;
 }
 
 function checkSpam(str) {
