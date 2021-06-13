@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        border: double 10px rgba(119, 20, 119, 0.527);
+    }
+
+    button {
+
+        font-size: 13px;
+        font-weight: bolder;
+        border-radius: 25px;
+        width: 78px;
+    }
+</style>
+
+<body>
+
+    <div class="container">
+        <div>
+            <textarea class="note" name="the_note1" id="keyOne" cols="10" rows="3"> Заметка №1 </textarea>
+            <textarea class="note" name="the_note1" id="valueOne" cols="70" rows="3">  </textarea>
+            <button onclick="saved1()"> Сохранить </button>
+        </div>
+        <div>
+            <textarea class="note" name="the_note2" id="keyTwo" cols="10" rows="3"> Заметка №2 </textarea>
+            <textarea class="note" name="the_note2" id="valueTwo" cols="70" rows="3">  </textarea>
+            <button onclick="saved2()"> Сохранить </button>
+        </div>
+        <div>
+            <textarea class="note" name="the_note3" id="keyThree" cols="10" rows="3"> Заметка №3 </textarea>
+            <textarea class="note" name="the_note3" id="valueThree" cols="70" rows="3">  </textarea>
+            <button onclick="saved3()"> Сохранить </button>
+        </div>
+        <div>
+            <textarea class="note" name="the_note4" id="keyFour" cols="10" rows="3"> Заметка №4 </textarea>
+            <textarea class="note" name="the_note4" id="valueFour" cols="70" rows="3">  </textarea>
+            <button onclick="saved4()"> Сохранить </button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+
+            let storageTask = localStorage.getItem('task1');
+
+            if (storageTask != null) {
+                document.getElementById("valueOne").value = storageTask;
+            }
+
+            let storageTask2 = localStorage.getItem('task2');
+
+            if (storageTask2 != null) {
+                document.getElementById("valueTwo").value = storageTask2;
+            }
+
+            let storageTask3 = localStorage.getItem('task3');
+
+            if (storageTask3 != null) {
+                document.getElementById("valueThree").value = storageTask3;
+            }
+
+            let storageTask4 = localStorage.getItem('task4');
+
+            if (storageTask4 != null) {
+                document.getElementById("valueFour").value = storageTask4;
+            }
+        })
+
+        function saved1() {
+
+            let key = document.getElementById("keyOne").value;
+            let value = document.getElementById("valueOne").value;
+
+            if (localStorage.getItem('task1') == null) {
+                localStorage.setItem('task1', value);
+            }
+        }
+
+        function saved2() {
+            let key = document.getElementById("keyTwo").value;
+            let value = document.getElementById("valueTwo").value;
+
+
+            if (localStorage.getItem('task2') == null) {
+                localStorage.setItem('task2', value);
+            }
+        }
+
+        function saved3() {
+            let key = document.getElementById("keyThree").value;
+            let value = document.getElementById("valueThree").value;
+
+
+            if (localStorage.getItem('task3') == null) {
+                localStorage.setItem('task3', value);
+            }
+        }
+
+        function saved4() {
+            let key = document.getElementById("keyFour").value;
+            let value = document.getElementById("valueFour").value;
+
+
+            if (localStorage.getItem('task4') == null) {
+                localStorage.setItem('task4', value);
+            }
+        }
+    </script>
+</body>
+
+</html>
